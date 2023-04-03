@@ -1,0 +1,24 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+N = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+L = np.array([10, 18, 22, 27, 36, 49, 56, 64, 70, 78])
+
+def func(N, a, b):
+    return a * N**b
+
+params, _ = curve_fit(func, N, L)
+
+a, b = params
+print("a =", a)
+print("b =", b)
+
+N_fit = np.linspace(1, 10, 100)
+L_fit = func(N_fit, a, b)
+
+plt.plot(N, L, 'o', label='Pomiary')
+plt.plot(N_fit, L_fit, label='Aproksymacja')
+plt.xlabel('N [tys. sztuk]')
+plt.ylabel('L [J]')
+plt.legend()
+plt.show()
