@@ -1,0 +1,25 @@
+import math
+
+def calculate_ab(x, y):
+    n = len(x)
+    sum_ln_x = 0
+    sum_ln_x_squared = 0
+    sum_y_ln_x = 0
+    for i in range(n):
+        sum_ln_x += math.log(x[i])
+        sum_ln_x_squared += math.log(x[i]) ** 2
+        sum_y_ln_x += y[i] * math.log(x[i])
+    
+    a = (sum_y_ln_x * sum_ln_x_squared - sum_ln_x * sum_ln_x * sum_y_ln_x) / (n * sum_ln_x_squared - sum_ln_x ** 2)
+    b = (n * sum_y_ln_x - sum_ln_x * sum_y_ln_x) / (n * sum_ln_x_squared - sum_ln_x ** 2)
+    
+    return a, b
+
+# przykładowe dane
+x = [1, 2, 3, 4, 5, 6]
+y = [1, 3, 4, 5, 6, 7]
+
+a, b = calculate_ab(x, y)
+
+print("a =", a)
+print("b =", b)
