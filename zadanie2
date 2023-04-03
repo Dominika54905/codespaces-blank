@@ -16,8 +16,8 @@ def calculate_ab(x, y):
     return a, b
 
 # przykładowe dane
-x = [1, 2, 3, 4, 5, 6]
-y = [1, 3, 4, 5, 6, 7]
+x = [2, 3, 4, 5, 6, 7]
+y = [3, 5, 6, 7, 9, 9]
 
 a, b = calculate_ab(x, y)
 
